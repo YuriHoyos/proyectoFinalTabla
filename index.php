@@ -105,7 +105,7 @@ $query = mysqli_query($conn, $sql);
         <div class="row justify-content-between"> <!-- Cambia justify-content-end a justify-content-between -->
             <div class="col-md-2">
                 <button type="button" class="d-flex justify-content-end mb-3 " data-toggle="modal" data-target="#agregarModal">
-                    Agregar
+                    Nuevo
                 </button>
             </div>
         </div>
