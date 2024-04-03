@@ -1,17 +1,24 @@
 <?php
-include_once('../modelo/productoDAO.php'); 
+include_once('../modelo/productoDAO.php');
 
-$nombre = $_POST['nombre']; 
-$descripcion = $_POST['descripcion']; 
+// Verificamos si se enviaron los datos del formulario
+if(isset($_POST['nombre']) && isset($_POST['descripcion'])) {
+    $nombre = $_POST['nombre'];
+    $descripcion = $_POST['descripcion'];
 
-$productoDAO = new ProductoDAO(); 
-if ($productoDAO->agregarProducto($nombre, $descripcion)) {
-    // Redirige a la página principal
-    header("Location: ../index.php");
-    // Muestra un mensaje de confirmación
-    echo "<script>alert('Producto agregado correctamente');</script>";
-    exit(); 
+    // Creamos el mensaje de confirmación
+    echo "<script>
+            var confirmacion = confirm('¿Estás seguro de que deseas agregar este producto?');
+            if (confirmacion) {
+                // Si el usuario confirma, redirigimos a agregar el producto
+                window.location.href = 'confirmar_agregar_producto.php?nombre=$nombre&descripcion=$descripcion';
+            } else {
+                // Si el usuario cancela, regresamos a la página anterior
+                window.history.back();
+            }
+          </script>";
 } else {
-    echo "Error al agregar el producto.";
+    // Si no se enviaron los datos del formulario, mostramos un mensaje de error
+    echo "Error: No se recibieron los datos del formulario.";
 }
 ?>
