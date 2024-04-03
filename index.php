@@ -63,7 +63,7 @@ $query = mysqli_query($conn, $sql);
                            Actualizar
                         </button>
                         <!-- Enlace para eliminar producto -->
-                        <a href="controller/EliminarDatosproducto.php?id=<?= $row['id'] ?>" class="btn btn-warning">Eliminar</a>
+                        <a href="controller/eliminarProductoController.php?id=<?= $row['id'] ?>" class="btn btn-warning">Eliminar</a>
                     </td>
                 </tr>
 
@@ -79,7 +79,7 @@ $query = mysqli_query($conn, $sql);
                             </div>
                             <div class="modal-body">
                                 <!-- Formulario para editar producto -->
-                                <form action="controller/ActualizarDatosproducto.php" method="POST">
+                                <form action="controller/actualizarProductoController.php" method="POST">
                                     <input type="hidden" name="id" value="<?= $row['Id'] ?>">
                                     <div class="form-group">
                                         <label for="nombre">Nombre:</label>
@@ -123,7 +123,7 @@ $query = mysqli_query($conn, $sql);
                 </div>
                 <div class="modal-body">
                     <!-- Formulario para agregar producto -->
-                    <form action="controller/AgregarDatosproducto.php" method="POST">
+                    <form action="controller/agregarProductoController.php" method="POST">
                         <div class="form-group">
                             <label for="nombre">Nombre:</label>
                             <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
